@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Attention Ledger</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="site-header">
+    <div class="header-top">
+      <div>
+        <div class="brand-mark">Vol. 01 — Est. 2026</div>
+        <h1 class="site-title">The Attention Ledger</h1>
+        <p class="site-tagline">Notes on marketing, systems, and the businesses hiding underneath both — written by an engineer who ended up in brand strategy.</p>
+      </div>
+      <div class="toggle-row">
+        <button class="icon-btn" id="theme-toggle" aria-label="Toggle dark mode">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="4.5"/><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8 6 18M18 6l1.8-1.8"/></svg>
+        </button>
+        <button class="icon-btn" id="resume-toggle" aria-label="View resume">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M9 13h6M9 16h6M9 10h2"/></svg>
+        </button>
+      </div>
+    </div>
+    <nav class="site-nav">
+      <a href="index.html" class="current">Entries</a>
+      <a href="about.html">About</a>
+      <a href="now.html">Now</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <div class="ledger-header">
+    <span>Entries</span>
+    <span>Newest first</span>
+  </div>
+
+  <div class="entries">
+
+    <div class="entry">
+      <div class="entry-meta"><span class="entry-num">001</span><br>Jul 11 2026</div>
+      <a href="post-1.html">
+        <div class="entry-body">
+          <h2>Why fintech marketing is really a translation problem</h2>
+          <p class="entry-excerpt">Most fintech products fail to convert not because the offer is weak, but because nobody has translated the mechanism into something a non-expert can feel.</p>
+          <span class="entry-tag">FINTECH · POSITIONING</span>
+        </div>
+      </a>
+      <div class="entry-rule"></div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-meta"><span class="entry-num">002</span><br>Jul 03 2026</div>
+      <a href="post-2.html">
+        <div class="entry-body">
+          <h2>What software engineering taught me about brand strategy</h2>
+          <p class="entry-excerpt">Debugging and diagnosing a weak brand position use the same muscle. Notes from the transition, and the mental model that carried over.</p>
+          <span class="entry-tag">CAREER · SYSTEMS THINKING</span>
+        </div>
+      </a>
+      <div class="entry-rule"></div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-meta"><span class="entry-num">003</span><br>Jun 24 2026</div>
+      <a href="post-3.html">
+        <div class="entry-body">
+          <h2>A teardown: how a mid-size insurer talks to people under 30</h2>
+          <p class="entry-excerpt">A line-by-line look at the copy, the funnel, and the one change that would likely move the needle most.</p>
+          <span class="entry-tag">CASE STUDY · INSURANCE</span>
+        </div>
+      </a>
+      <div class="entry-rule"></div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-meta"><span class="entry-num">004</span><br>Jun 15 2026</div>
+      <a href="post-4.html">
+        <div class="entry-body">
+          <h2>The metric everyone tracks and nobody trusts</h2>
+          <p class="entry-excerpt">A short argument for why attention, not clicks, is the real unit of account in modern marketing — and how to actually ledger it.</p>
+          <span class="entry-tag">ANALYTICS · OPINION</span>
+        </div>
+      </a>
+      <div class="entry-rule"></div>
+    </div>
+
+  </div>
+
+  <footer class="site-footer">
+    <span>&copy; 2026 The Attention Ledger</span>
+    <span><a href="contact.html">Subscribe</a> &nbsp;·&nbsp; <a href="#">RSS</a></span>
+  </footer>
+
+</div>
+
+<div class="resume-overlay" id="resume-overlay">
+  <div class="resume-panel">
+    <button class="resume-close" id="resume-close" aria-label="Close resume">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+    <h2>Your Name</h2>
+    <p class="resume-role">Marketing Strategist &nbsp;·&nbsp; Ex-Software Engineer &nbsp;·&nbsp; MBA Candidate</p>
+
+    <div class="resume-section">
+      <h4>Summary</h4>
+      <p style="font-size:14px;">Marketer with a software engineering background, focused on translating complex, technical, or financial products into clear positioning and growth strategy. Currently pursuing an MBA in Marketing.</p>
+    </div>
+
+    <div class="resume-section">
+      <h4>Experience</h4>
+      <div class="resume-item">
+        <div class="resume-item-title">Software Engineer — [Company Name]</div>
+        <div class="resume-item-meta">[Start] – [End]</div>
+        <p>[One or two lines on scope and a quantified outcome, e.g. "Built and maintained X, reducing Y by Z%."]</p>
+      </div>
+      <div class="resume-item">
+        <div class="resume-item-title">[Internship / Project Title]</div>
+        <div class="resume-item-meta">[Dates]</div>
+        <p>[Brief description of marketing/strategy work completed.]</p>
+      </div>
+    </div>
+
+    <div class="resume-section">
+      <h4>Education</h4>
+      <div class="resume-item">
+        <div class="resume-item-title">MBA, Marketing — [Institute Name]</div>
+        <div class="resume-item-meta">[Expected graduation year]</div>
+      </div>
+      <div class="resume-item">
+        <div class="resume-item-title">B.Tech / B.E, Computer Science — [University Name]</div>
+        <div class="resume-item-meta">[Graduation year]</div>
+      </div>
+    </div>
+
+    <div class="resume-section">
+      <h4>Skills</h4>
+      <div class="resume-skills">
+        <span class="resume-skill">Brand Strategy</span>
+        <span class="resume-skill">Market Research</span>
+        <span class="resume-skill">Python</span>
+        <span class="resume-skill">SQL</span>
+        <span class="resume-skill">Content Strategy</span>
+        <span class="resume-skill">Growth Marketing</span>
+      </div>
+    </div>
+
+    <a class="resume-download" href="#">Download full resume (PDF) →</a>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
