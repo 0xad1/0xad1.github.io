@@ -17,7 +17,7 @@
   --hairline: #2C313A;
   --muted: #8B897F;
   --surface: #1B2027;
-  --overlay: rgba(0, 0, 0, 0.6);
+  --overlay: rgba(0, 0, 0, 0.7);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -37,6 +37,12 @@ a { color: inherit; text-decoration: none; }
 
 .wrap {
   max-width: 760px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.wrap-wide {
+  max-width: 1040px;
   margin: 0 auto;
   padding: 0 24px;
 }
@@ -114,8 +120,9 @@ h1.site-title {
 
 nav.site-nav {
   display: flex;
-  gap: 28px;
+  gap: 24px;
   margin-top: 26px;
+  flex-wrap: wrap;
 }
 
 nav.site-nav a {
@@ -272,6 +279,154 @@ h1.article-title {
 .contact-list li { padding: 14px 0; border-bottom: 1px solid var(--hairline); display: flex; justify-content: space-between; font-family: 'IBM Plex Mono', monospace; font-size: 14px; }
 .contact-list a { color: var(--brass); }
 .contact-list a:hover { text-decoration: underline; }
+
+/* ---------- Photographs / masonry gallery ---------- */
+
+.gallery-intro { padding: 40px 0 32px; max-width: 620px; }
+.gallery-intro p { font-size: 16px; color: var(--charcoal); }
+
+.masonry {
+  column-count: 3;
+  column-gap: 14px;
+  padding-bottom: 70px;
+}
+
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 14px;
+  border-radius: 3px;
+  overflow: hidden;
+  border: 1px solid var(--hairline);
+  cursor: pointer;
+  position: relative;
+  background: var(--surface);
+}
+
+.masonry-item img {
+  width: 100%;
+  display: block;
+  transition: transform 0.4s ease, filter 0.3s ease;
+}
+
+.masonry-item:hover img {
+  transform: scale(1.03);
+}
+
+.masonry-caption {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 10px 12px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: #F7F4EE;
+  background: linear-gradient(to top, rgba(0,0,0,0.65), rgba(0,0,0,0));
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.masonry-item:hover .masonry-caption { opacity: 1; }
+
+.photo-placeholder {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--hairline) 0%, var(--paper) 100%);
+  color: var(--muted);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  text-align: center;
+  padding: 12px;
+}
+
+.photo-placeholder svg { width: 26px; height: 26px; opacity: 0.6; }
+
+@media (max-width: 760px) {
+  .masonry { column-count: 2; }
+}
+
+@media (max-width: 480px) {
+  .masonry { column-count: 1; }
+}
+
+/* Lightbox (shared pattern with resume modal) */
+
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--overlay);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 200;
+}
+
+.lightbox-overlay.active { display: flex; }
+
+.lightbox-content {
+  max-width: 880px;
+  width: 100%;
+  max-height: 88vh;
+}
+
+.lightbox-content img {
+  width: 100%;
+  max-height: 74vh;
+  object-fit: contain;
+  border-radius: 3px;
+  display: block;
+}
+
+.lightbox-caption {
+  margin-top: 14px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  color: var(--paper);
+  display: flex;
+  justify-content: space-between;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(247,244,238,0.4);
+  background: transparent;
+  color: var(--paper);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-close:hover { border-color: var(--brass); color: var(--brass); }
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid rgba(247,244,238,0.4);
+  background: transparent;
+  color: var(--paper);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-nav:hover { border-color: var(--brass); color: var(--brass); }
+.lightbox-prev { left: 24px; }
+.lightbox-next { right: 24px; }
 
 /* ---------- Footer ---------- */
 
