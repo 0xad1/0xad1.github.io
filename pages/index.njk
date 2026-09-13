@@ -1,0 +1,66 @@
+---
+layout: layouts/base.njk
+permalink: index.html
+---
+<section class="hero" aria-labelledby="welcome-title"><div><div class="eyebrow">Things I notice. Ideas I can't leave alone.</div><h1 id="welcome-title">{{ site.tagline | replace('.', '.<br>', 1) | safe }}</h1><p class="hero-copy">ThinkInPark is where I follow threads through brands, consumer behaviour, technology, business, and the small details that make them interesting.</p></div><div class="hero-aside"><div class="eyebrow">No itinerary required</div><p>Start with a long walk, pause on the bench, or let the park choose a path for you.</p><button class="button" id="take-me-somewhere">Take me somewhere <span aria-hidden="true">↗</span></button></div></section>
+<section class="idea-map" aria-labelledby="map-title" data-map="thinkinpark"><p class="idea-map__intro" id="map-title"><span class="eyebrow">The park, loosely mapped</span><br>Five places to begin. Their edges are deliberately porous.</p><svg class="idea-map__path" viewBox="0 0 1000 520" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M80,260 C160,320 200,400 260,340 C340,270 420,150 500,210 C600,270 660,420 740,360 C800,300 840,180 880,220" /></svg><a class="map-stop map-stop--walks" href="walks.html" data-map-stop="walks" data-section="walks"><span class="map-label">01 / Walks</span><small>long-form writing</small></a><a class="map-stop map-stop--bench" href="bench.html" data-map-stop="bench" data-section="bench"><span class="map-label">02 / Bench</span><small>short observations</small></a><a class="map-stop map-stop--holes" href="rabbit-holes.html" data-map-stop="rabbit-holes" data-section="rabbit-holes"><span class="map-label">03 / Rabbit Holes</span><small>open questions</small></a><a class="map-stop map-stop--experiments" href="experiments.html" data-map-stop="experiments" data-section="experiments"><span class="map-label">04 / Experiments</span><small>things being tested</small></a><a class="map-stop map-stop--about" href="about.html" data-map-stop="about" data-section="about"><span class="map-label">05 / About</span><small>the person walking</small></a></section>
+<section class="thinking-snapshot" aria-labelledby="thinking-title">
+
+  <div class="thinking-snapshot__intro">
+
+    <div class="section-kicker">
+      Currently thinking about
+    </div>
+
+    <h2 id="thinking-title">
+      A few loose<br>
+      threads.
+    </h2>
+
+    <p>
+      Questions I keep coming back to. No conclusions yet.
+    </p>
+
+  </div>
+
+
+  <div class="thinking-snapshot__threads">
+
+    {% for thread in currently %}
+
+    <a
+      href="rabbit-holes.html"
+      class="thinking-thread"
+    >
+
+      <span class="thinking-thread__number">
+        0{{ loop.index }}
+      </span>
+
+
+      <div class="thinking-thread__content">
+
+        <h3>
+          {{ thread.title }}
+        </h3>
+
+        <p>
+          {{ thread.summary }}
+        </p>
+
+      </div>
+
+
+      <span class="thinking-thread__arrow">
+        ↗
+      </span>
+
+    </a>
+
+    {% endfor %}
+
+  </div>
+
+</section>
+<section class="home-section" aria-labelledby="walks-title"><div class="home-section__intro"><div class="section-kicker">01 / Walks</div><h2 id="walks-title">Take the long way.</h2><p>Essays and arguments with room to unfold.</p></div><div>{% for post in collections.walks %}{% if loop.index <= 2 %}<a class="feature-link" href="{{ post.url }}"><div class="meta">{{ post.data.dateLabel }} · {{ post.data.readingTime }}</div><h3>{{ post.data.title }}</h3><p>{{ post.data.summary }}</p></a>{% endif %}{% endfor %}</div></section>
+<section class="home-section" aria-labelledby="bench-title"><div class="home-section__intro"><div class="section-kicker">02 / Bench</div><h2 id="bench-title">Stay a minute.</h2><p>Short thoughts that do not need to become essays.</p></div><ul class="bench-list">{% for note in collections.bench %}{% if loop.index <= 3 %}<li><span class="meta">{{ note.data.dateLabel }}</span><a href="{{ note.url }}"><p>{{ note.data.title }}</p></a></li>{% endif %}{% endfor %}</ul></section>

@@ -1,0 +1,7 @@
+---
+layout: layouts/base.njk
+title: Experiments
+section: experiments
+permalink: experiments.html
+---
+<header class="page-heading"><div class="eyebrow">04 / Experiments</div><h1>Things being<br>actively tested.</h1><p>Investigations with a hypothesis, a current state, and a direction that may change once the work meets reality.</p></header><section class="experiment-list">{% for experiment in collections.experiments %}<a class="experiment-row" href="{{ experiment.url }}"><div><span class="meta">Hypothesis</span><h2>{{ experiment.data.title }}</h2></div><p>{{ experiment.data.hypothesis }}</p><span class="status">{{ experiment.data.state }}</span><div class="experiment-movement"><span>Latest movement</span>{{ experiment.data.latest }}</div></a>{% endfor %}</section>

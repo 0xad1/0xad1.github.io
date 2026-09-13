@@ -1,0 +1,7 @@
+---
+layout: layouts/base.njk
+title: Rabbit Holes
+section: rabbit-holes
+permalink: rabbit-holes.html
+---
+<header class="page-heading"><div class="eyebrow">03 / Rabbit Holes</div><h1>Questions with<br>no neat exit.</h1><p>Persistent research threads: each one holds a premise, field notes, and the work it keeps pulling toward it.</p></header><section class="thread-index">{% for thread in collections['rabbit-holes'] %}<a class="thread-index__item" href="{{ thread.url }}"><div><span class="meta">{{ thread.data.state }}</span><h2>{{ thread.data.title }}</h2></div><div><p>{{ thread.data.question }}</p><span class="thread-index__latest">Latest note: {{ thread.data.latest }}</span></div></a>{% endfor %}</section>

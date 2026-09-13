@@ -1,0 +1,7 @@
+---
+layout: layouts/base.njk
+title: Walks
+section: walks
+permalink: walks.html
+---
+<header class="page-heading"><div class="eyebrow">01 / Walks</div><h1>Writing with<br>some distance to travel.</h1><p>Long-form notes on marketing, systems, technology, business, and the odd connection between them.</p></header><section class="listing" aria-label="Walks">{% for post in collections.walks %}<a class="listing-item item-link" href="{{ post.url }}"><div class="listing-side"><div class="meta">{{ post.data.dateLabel }}</div><span class="tag">{{ post.data.readingTime }} · {{ post.data.topic }}</span></div><div><h2 class="item-title">{{ post.data.title }}</h2><p class="item-summary">{{ post.data.summary }}</p></div></a>{% endfor %}</section>

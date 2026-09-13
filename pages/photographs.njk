@@ -1,0 +1,6 @@
+---
+layout: layouts/base.njk
+title: Photographs
+permalink: photographs.html
+---
+<header class="page-heading"><div class="eyebrow">Visual notebook</div><h1>Things noticed<br>without words.</h1><p>A small, unfinished collection of streets, light, and whatever is in front of me early in the morning.</p></header><section class="photo-grid" aria-label="Photograph notes">{% for photo in ['Marine Drive, dusk — Mumbai · 2026', 'Local train platform — Mumbai · 2026', 'Monsoon, first hour — Ahmedabad · 2025', 'Chai stall, 7 AM — Mumbai · 2026', 'Old city, side lane — Ahmedabad · 2025', 'Backwaters — Kerala · 2025'] %}<div class="photo-note"><span>{{ photo }}</span></div>{% endfor %}</section>

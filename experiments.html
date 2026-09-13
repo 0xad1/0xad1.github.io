@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Notes on brands, behaviour, business, technology, and the things in between.">
+  <title>Experiments — ThinkInPark</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="site-shell">
+
+    <!-- Header -->
+    <header class="site-header">
+      <a class="wordmark" href="index.html" aria-label="ThinkInPark home">ThinkIn<span>Park</span></a>
+
+      <div class="header-actions">
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a href="walks.html" >Walks</a>
+          <a href="bench.html" >Bench</a>
+          <a href="rabbit-holes.html" >Rabbit Holes</a>
+          <a href="experiments.html" aria-current="page">Experiments</a>
+          <a href="about.html" >About</a>
+        </nav>
+
+        <!-- Résumé (header, always visible) -->
+        <button class="icon-button" id="resume-toggle-header" data-resume-trigger aria-label="View résumé">⤓</button>
+
+        <!-- Theme toggle -->
+        <button class="icon-button" id="theme-toggle" aria-label="Toggle colour theme">◐</button>
+      </div>
+    </header>
+
+    <!-- Main content -->
+    <main>
+      <header class="page-heading"><div class="eyebrow">04 / Experiments</div><h1>Things being<br>actively tested.</h1><p>Investigations with a hypothesis, a current state, and a direction that may change once the work meets reality.</p></header><section class="experiment-list"><a class="experiment-row" href="/experiment-brand-teardown.html"><div><span class="meta">Hypothesis</span><h2>Brand teardown notebook</h2></div><p>A teardown is most useful when it follows the customer journey instead of grading a brand&#39;s aesthetics from a distance.</p><span class="status">Ongoing</span><div class="experiment-movement"><span>Latest movement</span>Adding a way to compare the story a brand tells with the moment a customer actually meets it.</div></a><a class="experiment-row" href="/experiment-attention-ledger.html"><div><span class="meta">Hypothesis</span><h2>Attention ledger</h2></div><p>A useful attention measure combines what people do, what they return to, and whether they can make sense of what they found.</p><span class="status">Testing</span><div class="experiment-movement"><span>Latest movement</span>Reframing the first model around quality and return, not only duration.</div></a></section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <span class="footer-meta">© 2026 ThinkInPark</span>
+      <span class="footer-closing">Keep wandering.</span>
+      <div class="footer-links">
+        <a href="contact.html">Contact</a>
+        <button class="button button--quiet" id="resume-toggle" data-resume-trigger>Résumé</button>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Notes on brands, behaviour, business, technology, and the things in between.">
+  <title>Attention ledger — ThinkInPark</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="site-shell">
+
+    <!-- Header -->
+    <header class="site-header">
+      <a class="wordmark" href="index.html" aria-label="ThinkInPark home">ThinkIn<span>Park</span></a>
+
+      <div class="header-actions">
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a href="walks.html" >Walks</a>
+          <a href="bench.html" >Bench</a>
+          <a href="rabbit-holes.html" >Rabbit Holes</a>
+          <a href="experiments.html" aria-current="page">Experiments</a>
+          <a href="about.html" >About</a>
+        </nav>
+
+        <!-- Résumé (header, always visible) -->
+        <button class="icon-button" id="resume-toggle-header" data-resume-trigger aria-label="View résumé">⤓</button>
+
+        <!-- Theme toggle -->
+        <button class="icon-button" id="theme-toggle" aria-label="Toggle colour theme">◐</button>
+      </div>
+    </header>
+
+    <!-- Main content -->
+    <main>
+      <article class="thread-page"><header class="thread-header"><div class="meta">Experiment · Testing</div><h1>Attention ledger</h1><p>An investigation into the gap between a clean engagement number and the much messier experience of paying attention.</p></header><div class="thread-body"><section><div class="section-kicker">Central question</div><h2>Can an attention framework remain useful without pretending to be a single definitive score?</h2></section><section><div class="section-kicker">Current state</div><div class="article-body"><p>The first version separates attention into three conditions: arrival, meaningful time, and return. It is deliberately incomplete.</p>
+<p>The current work is to find signals that do not confuse friction with interest, or a long page with a useful one. A good model should make a better question possible, rather than become another number to optimise in isolation.</p>
+</div></section><section class="thread-related"><div class="section-kicker">Related Walks</div><a href="post-4.html">The metric everyone tracks and nobody trusts <span>↗</span></a></section><section class="thread-related"><div class="section-kicker">Related Experiments</div><a href="experiment-brand-teardown.html">Brand teardown notebook <span>↗</span></a></section><section class="thread-next"><div class="section-kicker">Next direction</div><p>Compare the model against a small set of product and editorial journeys, then remove any part that only looks elegant on a slide.</p></section></div></article>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <span class="footer-meta">© 2026 ThinkInPark</span>
+      <span class="footer-closing">Keep wandering.</span>
+      <div class="footer-links">
+        <a href="contact.html">Contact</a>
+        <button class="button button--quiet" id="resume-toggle" data-resume-trigger>Résumé</button>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

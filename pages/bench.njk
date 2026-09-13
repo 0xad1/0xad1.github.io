@@ -1,0 +1,7 @@
+---
+layout: layouts/base.njk
+title: Bench
+section: bench
+permalink: bench.html
+---
+<header class="page-heading"><div class="eyebrow">02 / Bench</div><h1>Notes left<br>in the open.</h1><p>Small observations that do not need an argument built around them. Updated whenever something lingers.</p></header><section class="listing">{% for note in collections.bench %}<article class="listing-item"><div class="listing-side"><div class="meta">{{ note.data.dateLabel }}</div><span class="tag">{{ note.data.topic }}</span></div><div><h2 class="item-title">{{ note.data.title }}</h2><p class="item-summary">{{ note.content | striptags | safe }}</p></div></article>{% endfor %}</section>
