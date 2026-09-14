@@ -1,113 +1,209 @@
 (function () {
   var root = document.documentElement;
-  var stored = localStorage.getItem('ledger-theme');
-  if (stored === 'dark') root.setAttribute('data-theme', 'dark');
 
-  function toggleTheme() {
-    var isDark = root.getAttribute('data-theme') === 'dark';
-    if (isDark) {
-      root.removeAttribute('data-theme');
-      localStorage.setItem('ledger-theme', 'light');
-    } else {
-      root.setAttribute('data-theme', 'dark');
-      localStorage.setItem('ledger-theme', 'dark');
+  // Load saved theme
+  var savedTheme = localStorage.getItem('thinkinpark-theme');
+  if (savedTheme) {
+    root.setAttribute('data-theme', savedTheme);
+  }
+
+  function setResume(open) {
+    var overlay = document.getElementById('resume-overlay');
+    if (!overlay) return;
+
+    overlay.classList.toggle('active', open);
+    overlay.setAttribute('aria-hidden', String(!open));
+  }
+
+  function addResume() {
+    if (
+      document.getElementById('resume-overlay') ||
+      !document.querySelector('[data-resume-trigger]')
+    ) {
+      return;
     }
-  }
 
-  function openResume() {
-    var overlay = document.getElementById('resume-overlay');
-    if (overlay) overlay.classList.add('active');
-  }
+    document.body.insertAdjacentHTML(
+      'beforeend',
+      `
+      <div
+        class="resume-overlay"
+        id="resume-overlay"
+        aria-hidden="true"
+      >
+        <section
+          class="resume-panel"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="resume-title"
+        >
+          <button
+            class="icon-button resume-close"
+            id="resume-close"
+            aria-label="Close résumé"
+          >
+            ×
+          </button>
 
-  function closeResume() {
-    var overlay = document.getElementById('resume-overlay');
-    if (overlay) overlay.classList.remove('active');
-  }
+          <h2 id="resume-title">Aditya Singh</h2>
 
-  // ---- Lightbox gallery ----
-  var galleryItems = [];
-  var currentIndex = 0;
+          <p class="resume-role">
+            Marketing strategist · ex-software engineer · MBA candidate
+          </p>
 
-  function openLightbox(index) {
-    var overlay = document.getElementById('lightbox-overlay');
-    if (!overlay || !galleryItems.length) return;
-    currentIndex = index;
-    updateLightbox();
-    overlay.classList.add('active');
-  }
+          <div class="resume-section">
+            <h3>Summary</h3>
+            <p>
+              Interested in translating complex and technical products into
+              clear positioning, useful experiences, and thoughtful growth
+              strategy.
+            </p>
+          </div>
 
-  function closeLightbox() {
-    var overlay = document.getElementById('lightbox-overlay');
-    if (overlay) overlay.classList.remove('active');
-  }
+          <div class="resume-section">
+            <h3>Experience</h3>
 
-  function updateLightbox() {
-    var img = document.getElementById('lightbox-img');
-    var titleEl = document.getElementById('lightbox-title');
-    var metaEl = document.getElementById('lightbox-meta');
-    var item = galleryItems[currentIndex];
-    if (!item || !img) return;
-    img.src = item.getAttribute('data-full') || item.querySelector('img') && item.querySelector('img').src || '';
-    if (titleEl) titleEl.textContent = item.getAttribute('data-title') || '';
-    if (metaEl) metaEl.textContent = item.getAttribute('data-meta') || '';
-  }
+            <div class="resume-item">
+              <strong>Marketing Analytics Intern — Fidelity Investments</strong>
+              <p>
+                Apr ’26 – Jun ’26 · Developed a marketing strategy using data
+                insights for a complex Fidelity business problem.
+              </p>
+            </div>
 
-  function nextImage() {
-    if (!galleryItems.length) return;
-    currentIndex = (currentIndex + 1) % galleryItems.length;
-    updateLightbox();
-  }
+            <div class="resume-item">
+              <strong>Software Engineer — Dassault Systèmes</strong>
+              <p>
+                Jan ’22 – Jun ’24 · Built and integrated PLM technology for
+                global manufacturing and defence clients.
+              </p>
+            </div>
 
-  function prevImage() {
-    if (!galleryItems.length) return;
-    currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
-    updateLightbox();
+            <div class="resume-item">
+              <strong>Systems Engineer — TresVista</strong>
+              <p>
+                Jul ’21 – Dec ’21 · Automated routine work through scripting
+                and configuration management.
+              </p>
+            </div>
+          </div>
+
+          <div class="resume-section">
+            <h3>Education</h3>
+
+            <div class="resume-item">
+              <strong>MBA, Marketing — NMIMS Mumbai</strong>
+              <p>Expected 2027</p>
+            </div>
+
+            <div class="resume-item">
+              <strong>
+                B.Tech, Computer Science — Symbiosis International University
+              </strong>
+              <p>2021</p>
+            </div>
+          </div>
+
+        </section>
+      </div>
+      `
+    );
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    var themeBtn = document.getElementById('theme-toggle');
-    if (themeBtn) themeBtn.addEventListener('click', toggleTheme);
 
-    var resumeBtn = document.getElementById('resume-toggle');
-    if (resumeBtn) resumeBtn.addEventListener('click', openResume);
+    // Resume modal
+    addResume();
 
-    var closeBtn = document.getElementById('resume-close');
-    if (closeBtn) closeBtn.addEventListener('click', closeResume);
 
-    var resumeOverlay = document.getElementById('resume-overlay');
-    if (resumeOverlay) {
-      resumeOverlay.addEventListener('click', function (e) {
-        if (e.target === resumeOverlay) closeResume();
+    // Theme toggle
+    var theme = document.getElementById('theme-toggle');
+
+    if (theme) {
+      theme.addEventListener('click', function () {
+
+        var currentTheme =
+          root.getAttribute('data-theme') || 'light';
+
+        var nextTheme =
+          currentTheme === 'dark'
+            ? 'light'
+            : 'dark';
+
+        root.setAttribute('data-theme', nextTheme);
+
+        localStorage.setItem(
+          'thinkinpark-theme',
+          nextTheme
+        );
+
       });
     }
 
-    galleryItems = Array.prototype.slice.call(document.querySelectorAll('.masonry-item'));
-    galleryItems.forEach(function (item, i) {
-      item.addEventListener('click', function () { openLightbox(i); });
+
+    // Resume open (any button/link marked data-resume-trigger — header, footer, or about)
+    var openers = document.querySelectorAll('[data-resume-trigger]');
+
+    openers.forEach(function (opener) {
+      opener.addEventListener('click', function () {
+        setResume(true);
+      });
     });
 
-    var lightboxOverlay = document.getElementById('lightbox-overlay');
-    if (lightboxOverlay) {
-      lightboxOverlay.addEventListener('click', function (e) {
-        if (e.target === lightboxOverlay) closeLightbox();
+
+    // Resume close
+    var closer = document.getElementById('resume-close');
+
+    if (closer) {
+      closer.addEventListener('click', function () {
+        setResume(false);
       });
     }
 
-    var lbClose = document.getElementById('lightbox-close');
-    if (lbClose) lbClose.addEventListener('click', closeLightbox);
 
-    var lbNext = document.getElementById('lightbox-next');
-    if (lbNext) lbNext.addEventListener('click', nextImage);
+    // Close resume when clicking outside
+    var overlay = document.getElementById('resume-overlay');
 
-    var lbPrev = document.getElementById('lightbox-prev');
-    if (lbPrev) lbPrev.addEventListener('click', prevImage);
+    if (overlay) {
+      overlay.addEventListener('click', function (event) {
+        if (event.target === overlay) {
+          setResume(false);
+        }
+      });
+    }
 
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') { closeResume(); closeLightbox(); }
-      if (lightboxOverlay && lightboxOverlay.classList.contains('active')) {
-        if (e.key === 'ArrowRight') nextImage();
-        if (e.key === 'ArrowLeft') prevImage();
+
+    // Random Walk
+    var wander = document.getElementById('take-me-somewhere');
+
+    if (wander) {
+      wander.addEventListener('click', function () {
+
+        var walks = [
+          'post-1.html',
+          'post-2.html',
+          'post-3.html',
+          'post-4.html'
+        ];
+
+        var randomWalk =
+          walks[Math.floor(Math.random() * walks.length)];
+
+        window.location.href = randomWalk;
+
+      });
+    }
+
+
+    // Escape closes resume
+    document.addEventListener('keydown', function (event) {
+
+      if (event.key === 'Escape') {
+        setResume(false);
       }
+
     });
+
   });
+
 })();
